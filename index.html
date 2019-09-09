@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HOME/ReadingPass</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/drawer.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="drawer drawer--left">
+<button type="button" class="drawer-toggle drawer-hamburger" onfocus="this.blur();">
+ <span class="drawer-toggle drawer-sort"><img src="images/search_hoso.png" alt="テーマで探す"></span>
+ <span class="drawer-toggle drawer-cross"><img src="images/cross_hoso.png" alt="閉じる"></span>
+</button>
+<nav class="drawer-nav">
+ <ul class="drawer-menu">
+ <li><a href="#">20代、仕事で悩んだとき</a></li>
+  <li><a href="#">幼児期の子育てで悩んだとき</a></li>
+  <li><a href="#">学生時代、友人関係で悩んだとき</a></li>
+ </ul>
+</nav>
+<script type="text/javascript" src="js/drawer.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<header>
+<div class="header_inner">
+<div class="toMypage">
+ <h3><a href="mypage.html"><img src="images/mypage.png" alt="マイページ"></a></h3>
+</div>
+<h1><img src="images/logo.svg" width="130" alt="ロゴ"/></h1>
+</div>
+</header>
+
+  <div class="tinder">
+  <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
+
+  <div class="tinder--cards">
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_10B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_10A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_9B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_9A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_8B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_8A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_7B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_7A.png" alt=""></div>
+</div>
+</div>
+    </div>
+
+<div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_6B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_6A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_5B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_5A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_4B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_4A.png" alt=""></div>
+</div>
+</div>
+    </div>
+    
+    <div class="tinder--card">
+      <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_3A.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_3A.png" alt=""></div>
+</div>
+</div>
+    </div>
+
+ 
+  </div>
+
+  <div class="tinder--buttons">
+    <div id="reverse"><a href="#"><img src="images/reload_24.png" alt="もどす"></a></div>
+    <button id="nope"><a href="#"><img src="images/cross_24.png" alt="NOPE"></a></button>
+    <button id="love"><a href="#"><img src="images/554_me_f.png" alt="LIKE"></a></button>
+    <div id="write"><a href="#"><img src="images/pencil_24.png" alt="かく"></a></div>
+  </div>
+</div>
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+
+
+<!--DRAWER-->
+<script>
+$(function() {
+    $('.drawer').drawer();
+});
+</script>
+
+<!--SWIPE-->
+  <script src="js/hammer.js"></script>
+  
+<!--FLIP-->  
+  <script>
+(function($){
+	$.fn.rotate_box = function(){
+		var	elm = $(this),
+			elm_in = $('.inner', this),
+			btn = $('.face, .back', elm),
+			deg = 0,
+			turn = false,
+			turn_cls = 'reverse';
+
+		var rotate_anm = function(){
+			elm_in.css({
+				'transform' : 'rotateY(' + deg * -2 + 'deg)'
+			});
+		};
+
+		var rotate = function(){
+			setTimeout(function(){
+				rotate_anm();
+				if( deg == 45 ){
+					if( turn === false ){
+						elm.addClass(turn_cls);
+					} else {
+						elm.removeClass(turn_cls);
+					}
+					deg = 315;
+				}
+				if( deg <= 45 ){
+					deg += 3;
+					rotate();
+				} else if( deg < 360 && deg > 45 ) {
+					deg += 3;
+					rotate();
+				} else {
+					deg = 0;
+					elm_in.attr('style', '');
+					if( turn === false ){
+						turn = true;
+					} else {
+						turn = false;
+					}
+				}
+			}, 5);
+		};
+
+		btn.click(function(){
+			rotate();
+		});
+	};
+})(jQuery);
+
+$('.card').each(function(){
+	$(this).rotate_box();
+});
+</script>
+
+
+</body>
+</html>
