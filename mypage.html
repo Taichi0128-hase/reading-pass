@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MY PAGE/ReadingPass</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$('.modalCheck').on('change', function(){
+    if($(this).is(':checked')){
+        $('body').css('overflow','hidden');
+    } else {
+        $('body').css('overflow','auto');
+    }
+});
+</script>
+</head>
+
+<body>
+<header>
+<div class="header_inner">
+<div class="toHome"><a href="index.html"><img src="images/home.png" alt="ホーム"></a></div>
+<h1><a href="index.html"><img src="images/logo.svg" width="130" alt="ロゴ"/></a></h1>
+</div>
+</header>
+
+<div id="wrapper">
+<div class="mypage_button">
+<div class="myFavourites"><p>FAVOURITES</p></div>
+<div class="myRP"><p>MY READINGPASS</p></div>
+</div>
+
+<article>
+
+
+<input type="checkbox" id="modal01" class="modalCheck">
+<input type="checkbox" id="modal02" class="modalCheck">
+<div class="wrapper">
+    
+            <label for="modal01">
+			<div class="book"><div class="icon iconY"></div>
+			<div class="sentence">
+			<h4>#20代、仕事で悩んだとき</h4>
+			<h1>転職をしようか迷っている時に読んだ本。</h1>
+			<h5>『アルケミスト-夢を旅した少年』</h5>
+			</div></div>
+			</label>
+		
+    <div id="modal01Con" class="modalWrap">
+        <div class="modalBg"><label for="modal01" class="closeModal"></label></div>
+        <div class="modalCon">
+            <div class="modalInner">
+                <div class="modalCloseBtn"><label for="modal01" class="closeModal">×</label></div>
+                
+                <div class="modalText">
+                    <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_8B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_8A.png" alt=""></div>
+</div>
+</div>
+                    <div class="btn"><label for="modal01">× CLOSE</label></div>
+                <!-- /.modalText --></div>
+            <!-- /.modalInner --></div>
+        <!-- /.modalCon --></div>
+    <!-- /.modalWrap --></div>
+    
+	</div>
+
+<div class="wrapper">
+    
+            <label for="modal02">
+			<div class="book"><div class="icon iconR"></div>
+			<div class="sentence">
+			<h4>#20代、仕事で悩んだとき</h4>
+			<h1>本棚のレイアウトを考えるときに</h1>
+			<h5>『THE METHOD OF SHOP SUCCESSデザインとセンスで売れる ショップ成功のメソッド』</h5>
+			</div></div>
+			</label>
+		
+    <div id="modal02Con" class="modalWrap">
+        <div class="modalBg"><label for="modal02" class="closeModal"></label></div>
+        <div class="modalCon">
+            <div class="modalInner">
+                <div class="modalCloseBtn"><label for="modal02" class="closeModal">×</label></div>
+                
+                <div class="modalText">
+                    <div class="card">
+<div class="inner">
+<div class="face"><img src="images/RP/draft1102_19B.png" alt=""></div>
+<div class="back"><img src="images/RP/draft1102_19A.png" alt=""></div>
+</div>
+</div>
+                    <div class="btn"><label for="modal02">× CLOSE</label></div>
+                <!-- /.modalText --></div>
+            <!-- /.modalInner --></div>
+        <!-- /.modalCon --></div>
+    <!-- /.modalWrap --></div>
+    
+	</div>
+
+</article>
+
+</div><!--wrapper-->
+ 
+ 
+ <script>
+(function($){
+	$.fn.rotate_box = function(){
+		var	elm = $(this),
+			elm_in = $('.inner', this),
+			btn = $('.face, .back', elm),
+			deg = 0,
+			turn = false,
+			turn_cls = 'reverse';
+
+		var rotate_anm = function(){
+			elm_in.css({
+				'transform' : 'rotateY(' + deg * -2 + 'deg)'
+			});
+		};
+
+		var rotate = function(){
+			setTimeout(function(){
+				rotate_anm();
+				if( deg == 45 ){
+					if( turn === false ){
+						elm.addClass(turn_cls);
+					} else {
+						elm.removeClass(turn_cls);
+					}
+					deg = 315;
+				}
+				if( deg <= 45 ){
+					deg += 3;
+					rotate();
+				} else if( deg < 360 && deg > 45 ) {
+					deg += 3;
+					rotate();
+				} else {
+					deg = 0;
+					elm_in.attr('style', '');
+					if( turn === false ){
+						turn = true;
+					} else {
+						turn = false;
+					}
+				}
+			}, 5);
+		};
+
+		btn.click(function(){
+			rotate();
+		});
+	};
+})(jQuery);
+
+$('.card').each(function(){
+	$(this).rotate_box();
+});
+</script>
+	
+</body>
+</html>
